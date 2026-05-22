@@ -1,3 +1,4 @@
+import React from 'react';
 import type { CRMStage, DeliverableStatus, AgentStatus } from '@/types';
 
 type BadgeVariant = 'default' | 'success' | 'warning' | 'danger' | 'info' | 'muted';
@@ -42,7 +43,7 @@ export function Badge({ label, variant = 'default', size = 'sm', dot = false }: 
   );
 }
 
-export function crmStageBadge(stage: CRMStage): JSX.Element {
+export function crmStageBadge(stage: CRMStage): React.ReactElement {
   const map: Record<CRMStage, BadgeVariant> = {
     'Prospect': 'muted',
     'Lead': 'info',
@@ -55,7 +56,7 @@ export function crmStageBadge(stage: CRMStage): JSX.Element {
   return <Badge label={stage} variant={map[stage]} dot size="sm" />;
 }
 
-export function deliverableStatusBadge(status: DeliverableStatus): JSX.Element {
+export function deliverableStatusBadge(status: DeliverableStatus): React.ReactElement {
   const map: Record<DeliverableStatus, BadgeVariant> = {
     'Requested': 'muted',
     'In Progress': 'info',
@@ -66,7 +67,7 @@ export function deliverableStatusBadge(status: DeliverableStatus): JSX.Element {
   return <Badge label={status} variant={map[status]} dot size="xs" />;
 }
 
-export function agentStatusBadge(status: AgentStatus): JSX.Element {
+export function agentStatusBadge(status: AgentStatus): React.ReactElement {
   const map: Record<AgentStatus, BadgeVariant> = {
     'active': 'success',
     'idle': 'muted',
@@ -82,7 +83,7 @@ export function agentStatusBadge(status: AgentStatus): JSX.Element {
   return <Badge label={labels[status]} variant={map[status]} dot size="xs" />;
 }
 
-export function priorityBadge(priority: string): JSX.Element {
+export function priorityBadge(priority: string): React.ReactElement {
   const map: Record<string, BadgeVariant> = {
     urgent: 'danger',
     high: 'warning',
